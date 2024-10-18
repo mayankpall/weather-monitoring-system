@@ -1,0 +1,204 @@
+# Weather Monitoring System
+
+A **real-time weather monitoring system** built using the **MERN stack** (MongoDB, Express, React, Node.js) that leverages the **OpenWeatherMap API** to monitor, analyze, and visualize weather conditions across multiple cities. This system provides real-time insights, daily weather summaries, and user-configurable alerts. It is containerized using **Docker** and supports deployment on modern platforms like **Vercel**.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [System Architecture](#system-architecture)
+- [Setup Instructions](#setup-instructions)
+- [Running the Application](#running-the-application)
+  - [Docker Setup](#docker-setup)
+  - [Manual Setup](#manual-setup)
+- [Testing](#testing)
+- [Design Decisions](#design-decisions)
+- [Future Enhancements](#future-enhancements)
+
+## Introduction
+
+This project is designed to provide users with real-time weather data for several metropolitan cities in India. Users can monitor weather conditions, set alert thresholds, and view daily summaries that include temperature, humidity, and wind speed trends. The system automatically triggers alerts if certain thresholds are breached and can send email notifications.
+
+## Features
+
+- **Real-time Weather Monitoring**: Continuously fetches weather data from OpenWeatherMap API for Indian cities (Delhi, Mumbai, Chennai, Bangalore, Kolkata, Hyderabad).
+- **Daily Weather Summaries**: Aggregates daily weather data and provides summaries such as:
+  - Average, maximum, and minimum temperatures.
+  - Dominant weather condition.
+  - Additional parameters such as humidity and wind speed.
+- **Configurable Alerts**: Users can define thresholds (e.g., temperature exceeding 35°C), and alerts will trigger when thresholds are violated.
+- **Forecast Feature**: Displays 5-day weather forecasts to help users anticipate weather conditions.
+- **Visualizations**: Weather data is visualized with charts, making it easy to track trends.
+- **Email Notifications**: Sends email alerts when a threshold is breached.
+- **Containerized Setup**: Dockerized services for both frontend and backend.
+
+## Technologies Used
+
+### Backend
+- **Node.js** with **Express.js** for the REST API.
+- **MongoDB** (via **Mongoose**) for data persistence.
+- **Nodemailer** for sending email alerts.
+- **Jest** for unit testing and integration testing.
+
+### Frontend
+- **React** for building the user interface.
+- **Axios** for making API requests.
+- **Chart.js** for data visualizations.
+
+### DevOps & Deployment
+- **Docker** for containerizing both frontend and backend.
+- **Docker Compose** for orchestrating services.
+
+---
+
+## System Architecture
+
+The Weather Monitoring System is composed of two main services:
+1. **Backend**: A REST API built with Node.js and Express that retrieves data from OpenWeatherMap, processes weather data, and stores it in MongoDB. It also handles user-defined alerts.
+2. **Frontend**: A React-based interface that allows users to visualize weather data, view forecasts, and manage alert thresholds.
+
+Both services are containerized using Docker and can be run independently or together using Docker Compose.
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
+- OpenWeatherMap API key (you can sign up for a free key [here](https://home.openweathermap.org/users/sign_up)).
+- MongoDB instance or cluster (you can use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for a free-tier cloud database).
+
+### Environment Variables
+
+You need to create `.env` files in both the **frontend** and **backend** directories.
+
+#### Backend `.env`:
+```bash
+PORT=5000
+OPENWEATHER_API_KEY=<your_openweathermap_api_key>
+MONGODB_URI=<your_mongodb_uri>
+EMAIL_SERVICE=Gmail
+EMAIL_USER=<your_email>
+EMAIL_PASS=<your_email_password>
+```
+
+#### Frontend `.env`:
+```bash
+REACT_APP_API_BASE_URL=http://localhost:5000
+```
+
+## Running the Application
+
+### Docker Setup
+
+To run the application using Docker, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone <repository_url>
+    cd WEATHER-MONITORING-SYSTEM
+    ```
+
+2. Ensure that both the **backend** and **frontend** have `.env` files as mentioned in the [Environment Variables](#environment-variables) section.
+
+3. Run the application using Docker Compose:
+    ```bash
+    docker-compose up --build
+    ```
+
+4. The frontend will be available at `http://localhost:3000`, and the backend API will run at `http://localhost:5000`.
+
+### Manual Setup
+
+If you prefer to run the services individually:
+
+#### Backend:
+1. Navigate to the `backend` directory:
+    ```bash
+    cd backend
+    ```
+
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the backend server:
+    ```bash
+    npm start
+    ```
+
+#### Frontend:
+1. Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the frontend server:
+    ```bash
+    npm start
+    ```
+
+4. Access the frontend at `http://localhost:3000`.
+
+---
+
+## Testing
+
+The backend has unit and integration tests using **Jest**. Tests cover:
+- Weather data retrieval.
+- Daily summary aggregation.
+- Alerts for threshold violations.
+- Forcast Test
+- Temperature Conversion
+
+Run the tests from the `backend` directory:
+```bash
+npm test
+```
+
+
+---
+
+## Design Decisions
+
+1. **Modular Architecture**: The project is divided into distinct services (frontend, backend) to ensure maintainability and scalability.
+2. **MongoDB for Storage**: MongoDB's flexibility in handling weather data (JSON) and its scalability made it the ideal choice.
+3. **Docker for Containerization**: Docker ensures that the application can run consistently across different environments.
+4. **Nodemailer for Alerts**: An email notification system alerts users when weather conditions breach their configured thresholds.
+5. **Data Visualization**: Weather data is presented visually using **Chart.js** for a better user experience.
+
+---
+
+## Future Enhancements
+
+- Add support for more granular weather parameters like visibility, air pressure, etc.
+- Implement role-based access control (RBAC) for managing alerts and user preferences.
+- Improve alert notification system with SMS alerts.
+- Extend the forecast feature to include more advanced predictive analytics.
+
+---
+
+## Dependencies
+
+### Backend
+- Node.js (v16+)
+- MongoDB (via Mongoose)
+- Nodemailer
+- Jest (for testing)
+
+### Frontend
+- React
+- Axios
+- Chart.js
+- React Testing Library
+
+---
+
+Feel free to clone the repository, follow the setup steps, and explore the project further!
