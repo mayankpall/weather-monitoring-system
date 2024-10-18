@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env   # Load environment variables from backend .env file
+    volumes:
+      - ./backend:/app
+    networks:
+      - weather-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"  # Frontend will be served on port 3000
+    environment:
+      - REACT_APP_API_BASE_URL=http://localhost:5000
+    networks:
+      - weather-network
+
+# Defining a shared network for communication between services
+networks:
+  weather-network:
+    driver: bridge
