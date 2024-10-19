@@ -11,9 +11,11 @@ A **real-time weather monitoring system** built using the **MERN stack** (MongoD
 - [Running the Application](#running-the-application)
   - [Docker Setup](#docker-setup)
   - [Manual Setup](#manual-setup)
+- [Troubleshooting](#troubleshooting)
 - [Testing](#testing)
 - [Design Decisions](#design-decisions)
 - [Future Enhancements](#future-enhancements)
+- [Images](#images)
 
 ## Introduction
 
@@ -96,7 +98,7 @@ To run the application using Docker, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/mayankpall/weather-monitoring-system
     cd WEATHER-MONITORING-SYSTEM
     ```
 
@@ -108,6 +110,32 @@ To run the application using Docker, follow these steps:
     ```
 
 4. The frontend will be available at `http://localhost:3000`, and the backend API will run at `http://localhost:5000`.
+
+---
+
+## Troubleshooting
+
+- If you encounter issues with **port 5000** being in use, you can either:
+  - Kill the process using port 5000 with the command:
+    ```bash
+    sudo lsof -i :5000
+    sudo kill -9 <PID>
+    ```
+  - On **Mac**, you can turn off **AirPlay Receiver**, which may be using port 5000. Go to **System Preferences** > **Sharing** > **AirPlay Receiver** and disable it.
+
+- If you face issues with **module not found** errors, navigate to the `backend` directory and run:
+    ```bash
+    cd backend
+    npm install
+    npm install express
+    ```
+
+Then, rebuild the Docker containers with:
+    ```bash
+    docker-compose up --build
+    ```
+
+---
 
 ### Manual Setup
 
@@ -147,7 +175,7 @@ If you prefer to run the services individually:
 
 4. Access the frontend at `http://localhost:3000`.
 
----
+
 
 ## Testing
 
@@ -155,14 +183,13 @@ The backend has unit and integration tests using **Jest**. Tests cover:
 - Weather data retrieval.
 - Daily summary aggregation.
 - Alerts for threshold violations.
-- Forcast Test
+- Forecast Test
 - Temperature Conversion
 
 Run the tests from the `backend` directory:
 ```bash
 npm test
 ```
-
 
 ---
 
@@ -176,28 +203,20 @@ npm test
 
 ---
 
-## Future Enhancements
+## Images
 
-- Add support for more granular weather parameters like visibility, air pressure, etc.
-- Implement role-based access control (RBAC) for managing alerts and user preferences.
-- Improve alert notification system with SMS alerts.
-- Extend the forecast feature to include more advanced predictive analytics.
+Here are a few screenshots of the application:
 
----
+1. **Dashboard with Weather Data Visualization**  
+   ![Dashboard](./images/dashboard.png)
 
-## Dependencies
+2. **Weather Alerts**  
+   ![Alerts](./images/alerts.png)
 
-### Backend
-- Node.js (v16+)
-- MongoDB (via Mongoose)
-- Nodemailer
-- Jest (for testing)
+3. **Temperature Trend Chart**  
+   ![Temperature Chart](./images/temperature-chart.png)
 
-### Frontend
-- React
-- Axios
-- Chart.js
-- React Testing Library
+> Make sure to add your actual images inside the `images` folder, and update the paths in this section.
 
 ---
 
