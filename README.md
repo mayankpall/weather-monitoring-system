@@ -14,7 +14,6 @@ A **real-time weather monitoring system** built using the **MERN stack** (MongoD
 - [Troubleshooting](#troubleshooting)
 - [Testing](#testing)
 - [Design Decisions](#design-decisions)
-- [Future Enhancements](#future-enhancements)
 - [Images](#images)
 
 ## Introduction
@@ -208,15 +207,22 @@ npm test
 Here are a few screenshots of the application:
 
 1. **Dashboard with Weather Data Visualization**  
-   ![Dashboard](./images/dashboard.png)
+  <img width="1437" alt="Screenshot 2024-10-19 at 5 08 21 AM" src="https://github.com/user-attachments/assets/1017be43-4fd3-41cb-88c2-83d6dbeb6e25">
+  <img width="1440" alt="Screenshot 2024-10-19 at 5 08 30 AM" src="https://github.com/user-attachments/assets/747f1211-198c-42a5-b432-0b6a99b282e8">
+  <img width="1440" alt="Screenshot 2024-10-19 at 5 08 51 AM" src="https://github.com/user-attachments/assets/174dc502-15f4-4fcd-8acc-54a68db9a915">
+  <img width="1440" alt="Screenshot 2024-10-19 at 5 09 21 AM" src="https://github.com/user-attachments/assets/5f348ed2-abd7-4457-a43c-0df6612a4cce">
+  <img width="1440" alt="Screenshot 2024-10-19 at 5 09 27 AM" src="https://github.com/user-attachments/assets/42935a09-08e3-44e9-a8a9-9630b4b4c062">
 
-2. **Weather Alerts**  
-   ![Alerts](./images/alerts.png)
 
-3. **Temperature Trend Chart**  
-   ![Temperature Chart](./images/temperature-chart.png)
+2. **Weather Alert**  
+   <img width="1440" alt="Screenshot 2024-10-19 at 5 09 58 AM" src="https://github.com/user-attachments/assets/0de6fc71-2788-44d0-90e6-ade7ad538dcc">
 
-> Make sure to add your actual images inside the `images` folder, and update the paths in this section.
+
+
+3. **Update Thresholds**  
+    <img width="1440" alt="Screenshot 2024-10-19 at 5 10 03 AM" src="https://github.com/user-attachments/assets/b8e42c4c-a6a2-41f7-be31-7d20f76f0d31">
+
+
 
 ---
 
